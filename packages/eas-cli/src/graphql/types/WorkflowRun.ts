@@ -6,6 +6,7 @@ export const WorkflowRunFragmentNode = gql`
     status
     gitCommitMessage
     gitCommitHash
+    requestedGitRef
     createdAt
     updatedAt
     workflow {

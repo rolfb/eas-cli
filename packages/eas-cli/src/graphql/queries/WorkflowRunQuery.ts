@@ -13,6 +13,7 @@ import {
   WorkflowRunStatus,
   WorkflowRunsForAppIdFileNameAndStatusQuery,
 } from '../generated';
+import { WorkflowJobFragmentNode } from '../types/WorkflowJob';
 import { WorkflowRunFragmentNode } from '../types/WorkflowRun';
 
 export const WorkflowRunQuery = {
@@ -69,16 +70,12 @@ export const WorkflowRunQuery = {
 
                   jobs {
                     id
-                    key
-                    name
-                    type
-                    status
-                    outputs
-                    createdAt
+                    ...WorkflowJobFragment
                   }
                 }
               }
             }
+            ${print(WorkflowJobFragmentNode)}
           `,
           { workflowRunId },
           {
