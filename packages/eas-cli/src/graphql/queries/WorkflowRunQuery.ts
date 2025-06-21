@@ -58,23 +58,15 @@ export const WorkflowRunQuery = {
               workflowRuns {
                 byId(workflowRunId: $workflowRunId) {
                   id
-                  name
-                  status
-                  createdAt
-
-                  workflow {
-                    id
-                    name
-                    fileName
-                  }
-
                   jobs {
                     id
                     ...WorkflowJobFragment
                   }
+                  ...WorkflowRunFragment
                 }
               }
             }
+            ${print(WorkflowRunFragmentNode)}
             ${print(WorkflowJobFragmentNode)}
           `,
           { workflowRunId },

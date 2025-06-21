@@ -9,6 +9,10 @@ export const WorkflowRunFragmentNode = gql`
     requestedGitRef
     createdAt
     updatedAt
+    errors {
+      title
+      message
+    }
     workflow {
       id
       name
